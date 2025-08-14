@@ -19,7 +19,8 @@ const requestListener = (request, response) => {
 
     request.on("end", () =>{
       body = Buffer.concat(body).toString();
-      response.end(`<h1>Data received: ${body}</h1>`);
+      const {name} = JSON.parse(body);
+      response.end(`<h1>Data received: ${name}</h1>`);
     })
 
   }
